@@ -3,10 +3,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ASPNETFastpathTraining.Pages.Modul05
 {
-    public class MonateModel : PageModel
+    public class PLZModel : PageModel
     {
-        [BindProperty(Name ="monat",SupportsGet =true)]
-        public int Monat { get; set; }
         public void OnGet()
         {
         }
