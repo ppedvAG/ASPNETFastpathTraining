@@ -3,6 +3,7 @@ using ASPNETFastpathTraining.Klassen;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddSession(o=>o.Cookie.HttpOnly=true);
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<Zaehler>();
 var app = builder.Build();
@@ -19,7 +20,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseSession();
 app.UseAuthorization();
 
 app.MapRazorPages();
