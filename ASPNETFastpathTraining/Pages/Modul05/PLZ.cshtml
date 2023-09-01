@@ -32,7 +32,7 @@
                     @foreach (var item in Model.Liste)
                     {
                         <li class="list-group-item">
-                            @item.postalCode : @item.name
+                            @item.postalCode : @item.name @item.district?.name
                         </li>
                     }
                 }
