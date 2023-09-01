@@ -2,3 +2,42 @@
 @model ASPNETFastpathTraining.Pages.Modul05.PLZModel
 @{
 }
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Postleitzahlen Suche</h2>
+            <form method="post">
+
+                <div class="input-group mb-3">
+                    <input  class="form-control" placeholder="suche" name="suche">
+                    <button class="btn btn-outline-secondary" type="submit"><i class="bi bi-search"></i></button>
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <ul class="list-group list-group-flush">
+                @if (Model.Liste==null)
+                {
+                    <li class="list-group-item">
+                        keine Daten
+                    </li>
+                }
+                else
+                {
+                    @foreach (var item in Model.Liste)
+                    {
+                        <li class="list-group-item">
+                            @item.postalCode : @item.name
+                        </li>
+                    }
+                }
+            </ul>
+
+        </div>
+    </div>
+</div>
