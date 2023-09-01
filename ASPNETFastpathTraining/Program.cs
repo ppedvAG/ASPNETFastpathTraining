@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSession(o=>o.Cookie.HttpOnly=true);
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<Zaehler>();
+builder.Services.AddHttpClient();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
