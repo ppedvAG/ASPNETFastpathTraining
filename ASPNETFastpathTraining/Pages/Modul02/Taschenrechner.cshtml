@@ -1,0 +1,14 @@
+﻿@page "/calc/{handler?}"
+@model ASPNETFastpathTraining.Pages.Modul02.TaschenrechnerModel
+@{
+}
+
+<form method="post">
+    <input  name="input1" />
+    <input  name="input2" />
+    <button  asp-page-handler="add">+</button>
+    <button asp-page-handler="sub">-</button>
+</form>
+<hr />
+@Model.Ausgabe
+
