@@ -1,0 +1,12 @@
+﻿@page "/Autos/{hersteller?}/{typ?}/{ps:int?}"
+@model ASPNETFastpathTraining.Pages.Modul02.RoutenSampleModel
+
+<h1>@RouteData.Values["hersteller"]</h1>
+
+<a asp-page="/Autos"
+   asp-route-hersteller="Audi"
+   asp-route-typ="A5"
+   asp-route-ps="170">Audi A5  Cabrio braun 170PS</a>
+
+@{
+}
