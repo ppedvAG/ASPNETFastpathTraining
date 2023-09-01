@@ -20,9 +20,8 @@ namespace ASPNETFastpathTraining.Pages.Modul05
         public void OnGet()
         {
         }
-        public async Task OnPostAsync() {
+        public async Task OnPostAsync(string suche) {
             //https://openplzapi.org/de/Localities?postalCode=8448
-            string suche="844";
             var url = $"{_configuration["ApiPLZUrl"]}/Localities?postalCode={suche}";
             Liste= await client.GetFromJsonAsync<List<PLZ>>(url);
         
