@@ -3,9 +3,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace ASPNETFastpathTraining.Pages.Modul02
 {
-    public class RoutenSampleModel : PageModel
+    public class Route2Model : PageModel
     {
-        public string hersteller = "Audi";
         public void OnGet()
         {
         }
