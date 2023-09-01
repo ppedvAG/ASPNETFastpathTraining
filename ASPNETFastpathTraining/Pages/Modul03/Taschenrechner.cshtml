@@ -1,0 +1,38 @@
+﻿@page "/c/{handler?}"
+@model ASPNETFastpathTraining.Pages.Modul03.TaschenrechnerModel
+@{
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6">
+
+            <form method="post">
+                <div class="row">
+                    <div class="col">
+                        <input class="form-control" type="number" step="0.01" min="1" max="10000000" name="input1" />
+                    </div>
+                    <div class="col">     <input class="form-control" name="input2" /></div>
+                    <div class="col">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button asp-page-handler="add" class="btn btn-outline-primary">
+                                <i class="bi bi-plus-circle"></i>Add</button>
+                            <button asp-page-handler="sub" class="btn btn-outline-primary"> <i class="bi bi-minus-circle"></i> Sub</button>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </form>
+        </div>
+        <div class="col-12 col-md-6">
+            <h1>@Model.Ausgabe</h1>
+        </div>
+    </div>
+</div>
+
+
+
+
