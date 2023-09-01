@@ -6,9 +6,9 @@ namespace ASPNETFastpathTraining.Pages.Modul02
     public class TaschenrechnerModel : PageModel
     {
         [BindProperty()]
-        public double input1 { get; set; }
+        public float input1 { get; set; }
         [BindProperty()]
-        public double input2 { get; set; }
+        public float input2 { get; set; }
 
         public double Ausgabe;
 
