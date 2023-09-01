@@ -40,4 +40,27 @@
 
         </div>
     </div>
+
+    <div class="row">
+        <div class="col">
+            <select>
+                @if (Model.Liste == null)
+                {
+                    <option value="">
+                        keine Daten
+                    </option>
+                }
+                else
+                {
+                    @foreach (var item in Model.Liste)
+                    {
+                        <option value="item.postalCode">
+                          @item.name
+                        </option>
+                    }
+                }
+            </select>
+
+        </div>
+    </div>
 </div>
