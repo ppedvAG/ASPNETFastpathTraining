@@ -55,3 +55,13 @@ Data Source=(localdb)\mssqllocaldb;Initial Catalog=Kunden;Integrated Security=Tr
 scaffold-dbcontext "Data Source=(localdb)\mssqllocaldb;Initial Catalog=Kunden;Integrated Security=True;Pooling=False"   Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
 
 Ausführen in Paket Manager COnsole
+
+Appsettings.json Connection String einfgen
+{
+  "ConnectionStrings": {"Kunden": "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=Kunden;Integrated Security=True;Pooling=False"},
+  "Logging": {
+
+
+  Sicherheit aus dbcontext Klasse onconfiguring den Connection String entfernen 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    { }
