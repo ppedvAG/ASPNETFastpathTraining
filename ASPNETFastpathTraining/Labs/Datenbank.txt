@@ -47,3 +47,11 @@ https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/7.0.10?_s
 
 https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools/7.0.10?_src=template
 https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Design/7.0.10?_src=template
+
+Scaffolding (Gerüstbau)
+server DB Eigenschaften Connection String
+Data Source=(localdb)\mssqllocaldb;Initial Catalog=Kunden;Integrated Security=True;Pooling=False
+
+scaffold-dbcontext "Data Source=(localdb)\mssqllocaldb;Initial Catalog=Kunden;Integrated Security=True;Pooling=False"   Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+Ausführen in Paket Manager COnsole
