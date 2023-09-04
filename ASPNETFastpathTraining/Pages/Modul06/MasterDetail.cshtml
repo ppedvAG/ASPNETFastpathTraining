@@ -1,4 +1,60 @@
 ﻿@page
+@using Models
+@using Microsoft.EntityFrameworkCore
+@inject KundenContext db
 @model ASPNETFastpathTraining.Pages.Modul06.MasterDetailModel
 @{
 }
+
+<div class="row">
+    <div class="col">
+
+        <table class="table accordion" id="accordionExample">
+            <thead>
+                <tr>
+                    <th>Name</th>
+
+                    <th>PLZ</th>
+                    <th>Ort</th>
+                    <th>Anzahl</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in db.Kundes.Include("Auftrags"))
+                {
+                    <tr class="accordion-item">
+                        <td>@item.Name</td>
+                        <td>@item.Plz</td>
+                        <td>@item.Ort</td>
+                        <td>
+                            <button class="accordion-button"
+                                    type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#Aufklappen@(item.KundeId)">
+                                <span class="badge bg-secondary">
+                                    @item.Auftrags.Count
+                                </span>
+
+
+
+                            </button>
+                        </td>
+                    </tr>
+           
+                    @if (item.Auftrags.Count > 0)
+                    {
+                        <tr id="Aufklappen@(item.KundeId)" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <td colspan="4">
+                                @foreach (var itemAuftrag in item.Auftrags)
+                                {
+                                    @itemAuftrag.Datum @itemAuftrag.Titel <br />
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </tbody>
+
+        </table>
+    </div>
+</div>
