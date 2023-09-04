@@ -1,0 +1,23 @@
+﻿(localdb)\mssqllocaldb 
+neue Datenbank im Server Explorer Kunden
+
+
+
+CREATE TABLE [dbo].Kunde
+(
+	[KundeId] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
+    [Name] VARCHAR(50) NULL, 
+    [PLZ] NCHAR(5) NULL, 
+    [Land] VARCHAR(50) NULL, 
+    [Ort] VARCHAR(50) NULL, 
+    [Datum] DATETIME2 NOT NULL DEFAULT GetDate()
+)
+commit;
+CREATE TABLE [dbo].Auftrag
+(
+	[AuftragId] INT PRIMARY KEY IDENTITY(1,1), 
+	KundeId int FOREIGN KEY REFERENCES Kunde(KundeId),
+	[Titel] VARCHAR(50) NULL, 
+    Preis FLOAT, 
+    [Datum] DATETIME2 NOT NULL DEFAULT GetDate()
+)
