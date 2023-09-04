@@ -1,0 +1,50 @@
+﻿@page 
+@using Models
+@inject KundenContext db
+@model ASPNETFastpathTraining.Pages.Modul06.SucheModel
+@{
+}
+<div class="row">
+    <div class="col">
+        <form >
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="suche" 
+               name="suchtext"
+            >
+            <button class="btn btn-outline-secondary" type="submit"><i class="bi bi-search"></i></button>
+        </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+
+                    <th>PLZ</th>
+                    <th>Ort</th>
+                    <th>Anzahl</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in db.Kundes.Where(x => x.Name.Contains(Request.Query["suchtext"])))
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Plz</td>
+                        <td>@item.Ort</td>
+                        <td><div class="rounded-pill">@item.Auftrags.Count</div></td>
+                    </tr>
+                }
+                
+            </tbody>
+          
+        </table>
+    </div>
+</div>
+
