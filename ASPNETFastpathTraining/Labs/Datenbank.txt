@@ -65,3 +65,10 @@ Appsettings.json Connection String einfgen
   Sicherheit aus dbcontext Klasse onconfiguring den Connection String entfernen 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     { }
+
+programm.cs einfügen
+
+builder.Services.AddDbContext<KundenContext>(o=>o.UseSqlServer(
+    builder.Configuration.GetConnectionString("Kunden")
+    )
+    );

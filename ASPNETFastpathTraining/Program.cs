@@ -1,4 +1,6 @@
 using ASPNETFastpathTraining.Klassen;
+using ASPNETFastpathTraining.Models;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,11 @@ builder.Services.AddSession(o=>o.Cookie.HttpOnly=true);
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<Zaehler>();
 builder.Services.AddHttpClient();
+
+builder.Services.AddDbContext<KundenContext>(o=>o.UseSqlServer(
+    builder.Configuration.GetConnectionString("Kunden")
+    )
+    );
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
