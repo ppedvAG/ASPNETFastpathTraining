@@ -1,5 +1,6 @@
 ﻿@page 
 @using Models
+@using Microsoft.EntityFrameworkCore
 @inject KundenContext db
 @model ASPNETFastpathTraining.Pages.Modul06.SucheModel
 @{
@@ -32,13 +33,13 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in db.Kundes.Where(x => x.Name.Contains(Request.Query["suchtext"])))
+                @foreach (var item in db.Kundes.Include("Auftrags").Where(x => x.Name.Contains(Request.Query["suchtext"])))
                 {
                     <tr>
                         <td>@item.Name</td>
                         <td>@item.Plz</td>
                         <td>@item.Ort</td>
-                        <td><div class="rounded-pill">@item.Auftrags.Count</div></td>
+                        <td><span class="badge bg-secondary">@item.Auftrags.Count</span></td>
                     </tr>
                 }
                 
