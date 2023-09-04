@@ -25,7 +25,8 @@ namespace ASPNETFastpathTraining.Pages.Modul06
             db.Auftrags.Add(a);
             db.SaveChanges();
             var neueid = a.AuftragId; //nur  zum Zeigen
-
+            //var k = db.Kundes.Find(1);
+            //k.Auftrags.Add()
         } 
     }
 }
