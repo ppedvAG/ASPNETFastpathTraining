@@ -1,0 +1,11 @@
+﻿@page
+@model ASPNETFastpathTraining.Pages.ProduktListeModel
+@{
+}
+<h1>Produktliste</h1>
+<ul>
+    @foreach (var produkt in Model.Produkte)
+    {
+        <li>@produkt.Name - @produkt.Preis</li>
+    }
+</ul>
