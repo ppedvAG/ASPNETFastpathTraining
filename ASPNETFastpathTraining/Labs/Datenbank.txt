@@ -1,7 +1,7 @@
 ﻿(localdb)\mssqllocaldb 
 neue Datenbank im Server Explorer Kunden
 
-
+rechtsklick neue Abfrage copy paste ausführen
 
 CREATE TABLE [dbo].Kunde
 (
@@ -12,7 +12,7 @@ CREATE TABLE [dbo].Kunde
     [Ort] VARCHAR(50) NULL, 
     [Datum] DATETIME2 NOT NULL DEFAULT GetDate()
 )
-commit;
+
 CREATE TABLE [dbo].Auftrag
 (
 	[AuftragId] INT PRIMARY KEY IDENTITY(1,1), 
@@ -21,3 +21,23 @@ CREATE TABLE [dbo].Auftrag
     Preis FLOAT, 
     [Datum] DATETIME2 NOT NULL DEFAULT GetDate()
 )
+
+Ergebnis 2 Tabellen
+
+Copy Paste ausführen Daten erzeugen
+
+SET IDENTITY_INSERT [dbo].[Kunde] ON
+INSERT INTO [dbo].[Kunde] ([KundeId], [Name], [PLZ], [Land], [Ort], [Datum]) VALUES (1, N'Müller Max', N'84489', N'D', N'Burghausen', N'2023-08-30 15:35:54')
+INSERT INTO [dbo].[Kunde] ([KundeId], [Name], [PLZ], [Land], [Ort], [Datum]) VALUES (2, N'Stüwe Bernhard', N'94315', N'D', N'Straubing', N'2023-08-30 15:37:14')
+INSERT INTO [dbo].[Kunde] ([KundeId], [Name], [PLZ], [Land], [Ort], [Datum]) VALUES (3, N'Moser 
+Alexandra ', N'1150 ', N'AT', N'Wien', N'2023-08-30 15:37:59')
+INSERT INTO [dbo].[Kunde] ([KundeId], [Name], [PLZ], [Land], [Ort], [Datum]) VALUES (4, N'Helbig Juliane ', N'10117', N'D', N'Berlin', N'2023-08-30 15:39:10')
+SET IDENTITY_INSERT [dbo].[Kunde] OFF
+
+SET IDENTITY_INSERT [dbo].[Auftrag] ON
+INSERT INTO [dbo].[Auftrag] ([AuftragId], [KundeId], [Titel], [Preis], [Datum]) VALUES (1, 1, N'Bananen', 12, N'2023-08-30 15:54:49')
+INSERT INTO [dbo].[Auftrag] ([AuftragId], [KundeId], [Titel], [Preis], [Datum]) VALUES (2, 2, N'Auto', 100000, N'2023-08-30 15:54:57')
+INSERT INTO [dbo].[Auftrag] ([AuftragId], [KundeId], [Titel], [Preis], [Datum]) VALUES (3, 3, N'Taschentücher', 2.99, N'2023-08-30 15:55:08')
+INSERT INTO [dbo].[Auftrag] ([AuftragId], [KundeId], [Titel], [Preis], [Datum]) VALUES (4, 4, N'Strom', 0.23, N'2023-08-30 15:55:18')
+INSERT INTO [dbo].[Auftrag] ([AuftragId], [KundeId], [Titel], [Preis], [Datum]) VALUES (5, 1, N'Äpfel', 10.99, N'2023-08-30 15:55:29')
+SET IDENTITY_INSERT [dbo].[Auftrag] OFF
