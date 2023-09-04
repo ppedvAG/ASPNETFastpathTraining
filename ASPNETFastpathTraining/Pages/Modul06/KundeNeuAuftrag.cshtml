@@ -1,0 +1,53 @@
+﻿@page
+@using Models
+@using Microsoft.EntityFrameworkCore
+@inject KundenContext db
+@model ASPNETFastpathTraining.Pages.Modul06.KundeNeuAuftragModel
+@{
+}
+<div class="row">
+    <div class="col">
+        <form method="post">
+            <h2>neuer Auftrag</h2>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" 
+                       name="titel">
+                <input type="text" class="form-control" 
+                       name="preis">
+                <button class="btn btn-outline-secondary" type="submit"><i class="bi bi-plus"></i>Neu</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+
+                    <th>PLZ</th>
+                    <th>Ort</th>
+                    <th>Anzahl</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in db.Kundes.Include("Auftrags"))
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Plz</td>
+                        <td>@item.Ort</td>
+                        <td><span class="badge bg-secondary">@item.Auftrags.Count</span></td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+    </div>
+</div>
+
