@@ -11,19 +11,22 @@
                 @foreach (var item in Model.Liste)
                 {
                     <a asp-page="/modul05/TextEdit" asp-route-fileName="@item"
-                    class="list-group-item list-group-item-action">@item </a>
+                       class='list-group-item list-group-item-action @(item==Model.fileName?"list-group-item-info":"")'>
+                    
+                    @item </a>
 
                 }
+             
             </div>
         </div>
 
         <div class="col">
-         <h2>Edit File</h2>
-         <form method="post">
-             <textarea name="Inhalt" rows="10" cols="50">
-                 @Model.fileContent
-             </textarea>
-             <input type="submit" value="save"/>
+
+            <form method="post">
+                <input type="submit" value="save"
+                       class="btn btn-sm btn-outline-primary float-end" /> <h2>Edit File</h2>
+                <textarea name="Inhalt" rows="10" cols="50">@Model.fileContent</textarea>
+           
          </form>
         </div>
     </div>

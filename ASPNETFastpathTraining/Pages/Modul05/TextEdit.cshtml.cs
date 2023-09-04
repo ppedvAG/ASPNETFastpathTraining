@@ -5,9 +5,9 @@ namespace ASPNETFastpathTraining.Pages.Modul05
 {
     public class TextEditModel : PageModel
     {
-        private readonly string Pfad=Path.Combine(Directory.GetCurrentDirectory(),"App_data","mailtemplates");
+        private readonly string Pfad = Path.Combine(Directory.GetCurrentDirectory(), "App_data", "mailtemplates");
         public List<string> Liste { get; set; }
-        [BindProperty(SupportsGet =true)]
+        [BindProperty(SupportsGet = true)]
         public string fileName { get; set; }
         public String fileContent { get; set; }
         public void OnGet()
@@ -18,9 +18,17 @@ namespace ASPNETFastpathTraining.Pages.Modul05
             if (!string.IsNullOrEmpty(fileName))
             {
 
-                fileContent=System.IO.File.ReadAllText(Path.Combine(Pfad,fileName));
+
+                fileContent = System.IO.File.ReadAllText(Path.Combine(Pfad, fileName));
             }
 
+        }
+        public IActionResult OnPost(string Inhalt)
+        {
+            System.IO.File.WriteAllText(Path.Combine(Pfad, fileName), Inhalt);
+          // OnGet(); //einfach dei Liste füllen
+
+            return RedirectToPage("/modul05/TextEdit");
         }
     }
 }
