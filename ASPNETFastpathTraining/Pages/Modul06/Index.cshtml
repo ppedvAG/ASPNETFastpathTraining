@@ -1,0 +1,12 @@
+﻿@page
+@using Models
+@inject KundenContext db
+@model ASPNETFastpathTraining.Pages.Modul06.IndexModel
+@{
+}
+<ul>
+    @foreach (var item in db.Kundes)
+    {
+        <li>@item.Name</li>
+    }
+</ul>
