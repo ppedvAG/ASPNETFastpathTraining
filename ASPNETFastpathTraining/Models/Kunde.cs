@@ -1,15 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ASPNETFastpathTraining.Models;
 
 public partial class Kunde
 {
     public int KundeId { get; set; }
-
+    [Required]
+    [Display(Name ="Name Kunde")]
+    [StringLength(10,ErrorMessage ="Max 10 Zeichen",MinimumLength =3)]
     public string? Name { get; set; }
-
-    public string? Plz { get; set; }
+    [Required]
+    [Display(Name = "Postleitzahl")]
+    [StringLength(5, ErrorMessage = "Max 10 Zeichen", MinimumLength = 5)]
+    //[Range(string,"01000","99999",ErrorMessage ="Postleitzahl ungültig")]
+       public string? Plz { get; set; }
 
     public string? Land { get; set; }
 
