@@ -9,7 +9,7 @@ builder.Services.AddSession(o=>o.Cookie.HttpOnly=true);
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<Zaehler>();
 builder.Services.AddHttpClient();
-
+builder.Services.AddControllers();
 builder.Services.AddDbContext<KundenContext>(o=>o.UseSqlServer(
     builder.Configuration.GetConnectionString("Kunden")
     )
@@ -32,6 +32,6 @@ app.UseSession();
 app.UseAuthorization();
 
 app.MapRazorPages();
-
+app.MapControllers();
 
 app.Run();
