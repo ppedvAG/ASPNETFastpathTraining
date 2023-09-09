@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ASPNETFastpathTraining.Pages.Modul06;
 using Microsoft.EntityFrameworkCore;
 
 namespace ASPNETFastpathTraining.Models;
@@ -14,6 +15,7 @@ public partial class KundenContext : DbContext
         : base(options)
     {
     }
+    //public virtual DbSet<KundeAuftragCount> KundeAuftragCount { get; set; }
 
     public virtual DbSet<Auftrag> Auftrags { get; set; }
 

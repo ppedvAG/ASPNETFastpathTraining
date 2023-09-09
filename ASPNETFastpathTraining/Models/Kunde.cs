@@ -6,6 +6,7 @@ namespace ASPNETFastpathTraining.Models;
 
 public partial class Kunde
 {
+    [MaxLength(50)]
     public int KundeId { get; set; }
     [Required]
     [Display(Name ="Name Kunde")]

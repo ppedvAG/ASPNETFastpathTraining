@@ -30,5 +30,5 @@ app.UseSession();
 app.UseAuthorization();
 app.MapRazorPages();
 app.MapControllers();
-app.MapBlazorHub();
+
 app.Run();
